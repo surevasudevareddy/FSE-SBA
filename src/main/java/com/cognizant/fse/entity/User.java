@@ -19,6 +19,15 @@ public class User implements Serializable {
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	public User(long userId, String firstName, String lastName, String employeeId) {
+		super();
+		this.userId = userId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.employeeId = employeeId;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="User_ID")

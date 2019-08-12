@@ -59,7 +59,7 @@ public class Project implements Serializable {
 	private Date startDate;
 	private Date endDate;
 	private int priority;
-	@ManyToOne(targetEntity = User.class, fetch = FetchType.LAZY)
+	@ManyToOne(targetEntity = User.class, fetch = FetchType.EAGER)
 	@JoinColumn(name = "User_ID")
 	private User user;
 	@Transient

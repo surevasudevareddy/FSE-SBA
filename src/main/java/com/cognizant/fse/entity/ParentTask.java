@@ -20,6 +20,13 @@ public class ParentTask implements Serializable  {
 	public ParentTask() {
 		// TODO Auto-generated constructor stub
 	}
+	
+public ParentTask(long parentId, String parentTaskName) {
+		super();
+		this.parentId = parentId;
+		this.parentTaskName = parentTaskName;
+	}
+
 @Id
 @GeneratedValue(strategy=GenerationType.IDENTITY)
 @Column(name="Parent_ID")

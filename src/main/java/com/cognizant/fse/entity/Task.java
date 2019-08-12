@@ -24,17 +24,32 @@ public class Task implements Serializable {
 	public Task() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Task(long taskId, ParentTask parentTask, Project project, User user, String taskName, Date startDate,
+			Date endDate, int priority, String status) {
+		super();
+		this.taskId = taskId;
+		this.parentTask = parentTask;
+		this.project = project;
+		this.user = user;
+		this.taskName = taskName;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		Priority = priority;
+		this.status = status;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="Task_ID")
 	private long taskId;
-	@ManyToOne(targetEntity = ParentTask.class, fetch = FetchType.LAZY)
+	@ManyToOne(targetEntity = ParentTask.class, fetch = FetchType.EAGER)
 	@JoinColumn(name = "Parent_ID")
 	private ParentTask parentTask;
-	@ManyToOne(targetEntity = Project.class, fetch = FetchType.LAZY)
+	@ManyToOne(targetEntity = Project.class, fetch = FetchType.EAGER)
 	@JoinColumn(name = "Project_ID")
 	private Project project;
-	@ManyToOne(targetEntity = User.class, fetch = FetchType.LAZY)
+	@ManyToOne(targetEntity = User.class, fetch = FetchType.EAGER)
 	@JoinColumn(name = "User_ID")
 	private User user;
 	@Column(name="Task")

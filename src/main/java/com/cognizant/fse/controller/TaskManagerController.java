@@ -143,7 +143,7 @@ public class TaskManagerController {
     	logger.debug("create Parent task");
     	return parentTaskServImpl.create(parentTask);
     }
-	@PutMapping("/updateParentTask")
+	/*@PutMapping("/updateParentTask")
     public ParentTask updateParentTask(@RequestBody ParentTask parentTask){
     	logger.debug("update Parent task");
     	return parentTaskServImpl.update(parentTask);
@@ -157,5 +157,5 @@ public class TaskManagerController {
     public List<ParentTask> getParentTasks(){
     	logger.debug("get Parent tasks");
     	return parentTaskServImpl.findAll();
-    }
+    }*/
 }
