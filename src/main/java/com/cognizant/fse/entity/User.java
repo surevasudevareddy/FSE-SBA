@@ -36,10 +36,10 @@ public class User implements Serializable {
 	public void setUserId(long userId) {
 		this.userId = userId;
 	}
-	public String getFistName() {
+	public String getFirstName() {
 		return firstName;
 	}
-	public void setFistName(String firstName) {
+	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 	public String getLastName() {
@@ -56,7 +56,7 @@ public class User implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", fistName=" + firstName + ", lastName=" + lastName + ", employeeId="
+		return "User [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", employeeId="
 				+ employeeId + "]";
 	}
 	

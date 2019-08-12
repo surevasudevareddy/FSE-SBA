@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,7 +34,7 @@ import com.cognizant.fse.service.UserServiceImpl;
  *
  * A Task Manager controller
  */
-//@CrossOrigin(origins = "http://localhost:8088", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 public class TaskManagerController {
 	Logger logger = LoggerFactory.getLogger(TaskManagerController.class);
@@ -66,6 +67,11 @@ public class TaskManagerController {
     public User updateUser(@RequestBody User user){
     	logger.debug("update User");
     	return userServiceImpl.update(user);
+    }
+	@DeleteMapping(value = "deleteUser/{userId}")
+    public void deleteUser(@PathVariable long userId){
+    	logger.debug("delete User");
+    	userServiceImpl.deleteById(userId);
     }
     
     @GetMapping("/getUsers")
@@ -116,6 +122,11 @@ public class TaskManagerController {
     	task.setUser(user);
     	return taskServiceImpl.update(task);
     }
+	@GetMapping("/getTaskById")
+    public Task getTask(@RequestParam("taskId")long taskId){
+    	logger.debug("get Task");
+    	return taskServiceImpl.findOne(taskId);
+    }
     @GetMapping("/getTasks")
     public List<Task> getAllTasks(){
     	logger.debug("get All Task");
@@ -131,6 +142,11 @@ public class TaskManagerController {
     public ParentTask createParentTask(@RequestBody ParentTask parentTask){
     	logger.debug("create Parent task");
     	return parentTaskServImpl.create(parentTask);
+    }
+	@PutMapping("/updateParentTask")
+    public ParentTask updateParentTask(@RequestBody ParentTask parentTask){
+    	logger.debug("update Parent task");
+    	return parentTaskServImpl.update(parentTask);
     }
     @GetMapping("/getParentTask")
     public ParentTask getParentTask(@RequestParam("parentId")long parentId){
