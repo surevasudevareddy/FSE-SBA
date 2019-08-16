@@ -152,10 +152,10 @@ public class TaskManagerController {
     public ParentTask getParentTask(@RequestParam("parentId")long parentId){
     	logger.debug("get Parent task");
     	return parentTaskServImpl.findOne(parentId);
-    }
+    }*/
     @GetMapping("/getParentTasks")
     public List<ParentTask> getParentTasks(){
     	logger.debug("get Parent tasks");
     	return parentTaskServImpl.findAll();
-    }*/
+    }
 }
